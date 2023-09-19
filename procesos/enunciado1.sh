@@ -23,8 +23,26 @@ STAT=${PDATA[7]}
 
 PPATH=$(readlink /proc/$PID/exe)
 
-# guardar parent process id en la variable PPID
+# guardar parent process id en la variable PPIDD
 
+PPDATA=$(ps -efj | awk '$2=='$PID' { print $0 }')
+
+PPDATA=( $PPDATA )
+PPIDD=${PPDATA[2]}
+
+# guardar nombre del proceso en la variable PNAME
+
+PNAME=$(cat /proc/$PID/comm)
 
 # imprimir la siguiente informacion acerca del proceso:
 # nombre, ID, parent process ID, usuario propietario, %CPU, %MEM, status, path
+
+echo "---- Informacion relevante del proceso ----"
+echo "Nombre: $PNAME"
+echo "ID: $PID"
+echo "Parent process ID: $PPIDD"
+echo "Usuario propietario: $USER"
+echo "Porcentaje de uso de CPU al momento de correr el script: $CPU"
+echo "Consumo de memoria: $MEM"
+echo "Estado (status): $STAT"
+echo "Path del ejecutable: $PPATH"
