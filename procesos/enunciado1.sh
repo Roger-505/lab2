@@ -34,7 +34,7 @@ PPIDD=${PPDATA[2]}
 
 PNAME=$(cat /proc/$PID/comm)
 
-# imprimir la siguiente informacion acerca del proceso:
+# imprimir en la terminal la siguiente informacion acerca del proceso:
 # nombre, ID, parent process ID, usuario propietario, %CPU, %MEM, status, path
 
 echo "---- Informacion relevante del proceso ----"
