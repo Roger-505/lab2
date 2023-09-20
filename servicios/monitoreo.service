@@ -1,0 +1,12 @@
+[Unit]
+Description=Servicio de Monitoreo de Cambios en Directorios
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /home/rpiovet/Documents/UCR/ciclo6/ie0117/labos/lab2/servicios/enunciado1.sh
+WorkingDirectory=/home/rpiovet/Documents/UCR/ciclo6/ie0117/labos/lab2/servicios
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
